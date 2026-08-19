@@ -29,5 +29,28 @@ else:
 if len(card_deck) == 1:
     card_deck = list(card_deck[0])
 
+# Number round
+if card_deck[0].isdigit():
+    print("    NUMBER ROUND")
 
-print("CARDS: " + str(card_deck))
+    # Checks that all cards are numbers
+    for card in card_deck:
+        if not card.isdigit():
+            print("\n   CARD SET CONTAINS NON-NUMBER CARDS")
+            quit()
+    
+    # Solves the number round
+    numberSolver.solve(card_deck)
+
+# Letter round
+else:
+    print("    LETTER ROUND")
+
+    # Checks that all cards are letters
+    for card in card_deck:
+        if card.isdigit():
+            print("\n   CARD SET CONTAINS NUMBER CARDS")
+            quit()
+    
+    # Solves the number round
+    numberSolver.solve(card_deck)
